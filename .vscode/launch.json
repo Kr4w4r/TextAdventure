@@ -9,6 +9,13 @@
 			"name": "Launch App",
 			"request": "launch",
 			"mainClass": "de.tom.App",
+			"projectName": "TextAdventure_b8daa59f"
+		},
+		{
+			"type": "java",
+			"name": "Launch App",
+			"request": "launch",
+			"mainClass": "de.tom.App",
 			"projectName": "textadventure_5f414611"
 		},
 		{

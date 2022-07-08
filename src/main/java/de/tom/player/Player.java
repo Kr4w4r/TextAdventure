@@ -27,6 +27,10 @@ public class Player {
 		return inventory.stream().anyMatch(item -> item.getType() == itemType);
 	}
 
+	public void dropItem(Item itemToDrop) {
+		inventory.remove(itemToDrop);
+	}
+
 	public void dropItem(ItemType itemTypeToDrop) {
 		inventory.removeIf(item -> item.getType() == itemTypeToDrop);
 	}

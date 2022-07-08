@@ -1,4 +1,4 @@
-package de.tom.location.path;
+package de.tom.location;
 
 public class PathBlocker {
 	private String name;

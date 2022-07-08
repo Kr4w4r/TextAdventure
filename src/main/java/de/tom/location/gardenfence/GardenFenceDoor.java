@@ -1,11 +1,11 @@
-package de.tom.location.pointofinterest;
+package de.tom.location.gardenfence;
 
 import java.util.Optional;
 
 import de.tom.item.Item;
-import de.tom.item.Rust;
 import de.tom.item.Item.ItemType;
-import de.tom.location.path.GartenDoorPathBlocker;
+import de.tom.location.PointOfInterest;
+import de.tom.player.Player;
 
 public class GardenFenceDoor implements PointOfInterest {
 
@@ -26,19 +26,21 @@ public class GardenFenceDoor implements PointOfInterest {
 		if (gardenDoorPathBlocker.isBlocking()) {
 			System.out.println("Eine altes rostiges aber unüberwindbares Gartentor. Es ist verschlossen.");
 		} else {
-			System.out.println("Eine altes rostiges Gartentor. Es ist offen.");
+			System.out.println("Eine altes rostiges Gartentor. Du hast es geöffnet.");
 		}
 
 		return Optional.empty();
 	}
 
 	@Override
-	public Optional<Item> useItem(Item itemToUse) {
+	public Optional<Item> useItem(Player player, Item itemToUse) {
 		if (itemToUse.getType() == ItemType.GARDENKEY) {
 			System.out.println("Du steckst den Schlüssel in das Schloss des Tores. Er passt. Mit ein wenig kraft kannst du ihn drehen. Das Tor ist jetzt offen.");
+			
 			gardenDoorPathBlocker.unblock();
+			player.dropItem(itemToUse);
 
-			return Optional.of(new Rust());
+			return Optional.empty();
 		} else {
 			System.out.println("Diesen Gegenstand kann ich hier nicht benutzen.");
 		}

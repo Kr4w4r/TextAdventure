@@ -1,4 +1,6 @@
-package de.tom.location.path;
+package de.tom.location.gardenfence;
+
+import de.tom.location.PathBlocker;
 
 public class GartenDoorPathBlocker extends PathBlocker {
 

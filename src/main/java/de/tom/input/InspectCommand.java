@@ -7,7 +7,6 @@ import de.tom.Scene;
 import de.tom.item.Item;
 import de.tom.location.Location;
 import de.tom.location.LocationData;
-import de.tom.location.pointofinterest.PointOfInterest;
 import de.tom.player.Player;
 
 public class InspectCommand implements Command {

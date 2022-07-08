@@ -1,8 +1,10 @@
-package de.tom.location.pointofinterest;
+package de.tom.location.gardenfence;
 
 import java.util.Optional;
 
 import de.tom.item.Item;
+import de.tom.location.PointOfInterest;
+import de.tom.player.Player;
 
 public class GardenFence implements PointOfInterest {
 	@Override
@@ -18,7 +20,7 @@ public class GardenFence implements PointOfInterest {
 	}
 
 	@Override
-	public Optional<Item> useItem(Item itemToUse) {
+	public Optional<Item> useItem(Player player, Item itemToUse) {
 		System.out.println(itemToUse.getName() + " kann hier nicht verwendet werden.");
 		return Optional.empty();
 	}

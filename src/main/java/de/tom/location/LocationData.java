@@ -2,9 +2,6 @@ package de.tom.location;
 
 import java.util.List;
 
-import de.tom.location.path.Path;
-import de.tom.location.pointofinterest.PointOfInterest;
-
 public abstract class LocationData {
 
 	private Location location;
@@ -30,7 +27,9 @@ public abstract class LocationData {
 	public void printPaths() {
 		System.err.println("Zu diesen Orten kannst du gehen:");
 		for (Path path : getAvailablePaths()) {
-			System.out.println("- \"" + path.getLocationToGo().getName() + "\"");
+			if (path.isHidden() == false) {
+				System.out.println("- \"" + path.getLocationToGo().getName() + "\"");
+			}
 		}
 	}
 

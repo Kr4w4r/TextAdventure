@@ -1,22 +1,23 @@
-package de.tom.location;
+package de.tom.location.forest;
 
 import java.util.Arrays;
 import java.util.List;
 
-import de.tom.location.path.Path;
-import de.tom.location.pointofinterest.PointOfInterest;
-import de.tom.location.pointofinterest.TreeStomp;
+import de.tom.location.Location;
+import de.tom.location.LocationData;
+import de.tom.location.Path;
+import de.tom.location.PointOfInterest;
 
 public class Forest extends LocationData {
 
-	private static final List<Path> AVAILABLE_PATHS = Arrays.asList(
+	private List<Path> availablePaths = Arrays.asList(
 		new Path(Location.GARDEN_FENCE_WITH_DOOR)
 		);
 
 	TreeStomp treeStomp = new TreeStomp();
 	
 
-	protected Forest() {
+	public Forest() {
 		super(Location.FOREST);
 	}
 
@@ -32,7 +33,7 @@ public class Forest extends LocationData {
 
 	@Override
 	public List<Path> getAvailablePaths() {
-		return AVAILABLE_PATHS;
+		return availablePaths;
 	}
 	
 }

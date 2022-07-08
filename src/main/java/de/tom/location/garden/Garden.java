@@ -1,17 +1,21 @@
-package de.tom.location;
+package de.tom.location.garden;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import de.tom.location.path.Path;
-import de.tom.location.pointofinterest.PointOfInterest;
+import de.tom.location.Location;
+import de.tom.location.LocationData;
+import de.tom.location.Path;
+import de.tom.location.PointOfInterest;
 
 public class Garden extends LocationData {
 
-	private static final List<Path> AVAILABLE_PATHS = Arrays.asList(
-		new Path(Location.GARDEN_FENCE_WITH_DOOR)
-		);
+	private List<Path> availablePaths = Arrays.asList(
+		new Path(Location.GARDEN_FENCE_WITH_DOOR),
+		new Path(Location.HOUSE_ENTRANCE),
+		new Path(Location.SHED)
+	);
 		
 	public Garden() {
 		super(Location.GARDEN);
@@ -29,7 +33,7 @@ public class Garden extends LocationData {
 
 	@Override
 	public List<Path> getAvailablePaths() {
-		return AVAILABLE_PATHS;
+		return availablePaths;
 	}
 	
 }

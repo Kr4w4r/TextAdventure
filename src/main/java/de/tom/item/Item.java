@@ -9,7 +9,8 @@ public interface Item extends Inspectable {
 	
 	public enum ItemType {
 		GARDENKEY,
-		RUST
+		DOORKNOB, 
+		LADDER
 	}
 
 	String getName();

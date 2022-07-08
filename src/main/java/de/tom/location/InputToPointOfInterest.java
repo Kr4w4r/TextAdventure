@@ -1,8 +1,6 @@
-package de.tom.location.pointofinterest;
+package de.tom.location;
 
 import java.util.Optional;
-
-import de.tom.location.LocationData;
 
 public class InputToPointOfInterest {
 

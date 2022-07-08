@@ -6,7 +6,7 @@ import java.util.Optional;
 import de.tom.Scene;
 import de.tom.location.Location;
 import de.tom.location.LocationData;
-import de.tom.location.path.Path;
+import de.tom.location.Path;
 import de.tom.player.Player;
 
 public class MoveCommand implements Command {
@@ -49,8 +49,9 @@ public class MoveCommand implements Command {
 	}
 
 	private void move(Path pathToTake) {
-
-		if (pathToTake.isBlocked()) {
+		if (pathToTake.isHidden()) {
+			System.err.println("Von hier führt kein weg nach " + pathToTake.getLocationToGo().getName());
+		} else if (pathToTake.isBlocked()) {
 			System.out.println("Der Weg zum Bereich " + pathToTake.getLocationToGo().getName() + " ist blockiert. " + pathToTake.getPathBlocker().getBlockingText());
 		} else {
 			player.setLocation(pathToTake.getLocationToGo());

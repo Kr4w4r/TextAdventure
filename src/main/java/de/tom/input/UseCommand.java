@@ -2,12 +2,9 @@ package de.tom.input;
 
 import java.util.Optional;
 
-import javax.swing.plaf.PopupMenuUI;
-
 import de.tom.item.Item;
-import de.tom.location.LocationData;
-import de.tom.location.pointofinterest.InputToPointOfInterest;
-import de.tom.location.pointofinterest.PointOfInterest;
+import de.tom.location.InputToPointOfInterest;
+import de.tom.location.PointOfInterest;
 import de.tom.player.InputToItem;
 import de.tom.player.Player;
 import de.tom.player.PlayerLocation;
@@ -61,7 +58,7 @@ public class UseCommand implements Command {
 	}
 
 	private void useItemOnPointOfInterest(Item item, PointOfInterest pointOfInterest) {
-		Optional<Item> optionalFoundItem = pointOfInterest.useItem(item);
+		Optional<Item> optionalFoundItem = pointOfInterest.useItem(player, item);
 		optionalFoundItem.ifPresent(player::addItemToInventory);
 	}
 

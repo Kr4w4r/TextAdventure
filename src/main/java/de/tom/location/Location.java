@@ -6,7 +6,11 @@ import java.util.Optional;
 public enum Location {
 	FOREST("Dunkler Wald"),
 	GARDEN_FENCE_WITH_DOOR("Gartenzaun"),
-	GARDEN("Garten");
+	GARDEN("Garten"), 
+	HOUSE_ENTRANCE("Haus Eingang"),
+	HOUSE_EAST_SIDE("Haus Ostseite"),
+	HOUSE_WEST_SIDE("Haus Westseite"),
+	SHED("Schuppen");
 
 	private final String name;
 

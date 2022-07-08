@@ -1,9 +1,11 @@
-package de.tom.location.pointofinterest;
+package de.tom.location.forest;
 
 import java.util.Optional;
 
-import de.tom.item.Item;
 import de.tom.item.GardenKey;
+import de.tom.item.Item;
+import de.tom.location.PointOfInterest;
+import de.tom.player.Player;
 
 public class TreeStomp implements PointOfInterest {
 
@@ -34,7 +36,7 @@ public class TreeStomp implements PointOfInterest {
 	}
 
 	@Override
-	public Optional<Item> useItem(Item itemToUse) {
+	public Optional<Item> useItem(Player player, Item itemToUse) {
 		System.out.println("Du kannst den gegenstand hier nicht benutzen.");
 		return Optional.empty();
 	}

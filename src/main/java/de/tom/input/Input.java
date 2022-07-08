@@ -26,8 +26,10 @@ public class Input {
 	}
 
 	public void handlePlayerInput() {
-
+	System.out.println("\nWas möchtest du tun?");
 		String playerInput = System.console().readLine();
+
+		System.out.println();
 
 		Optional<Command> playerCommand = commands.stream()
 			.filter(command -> command.isCommand(playerInput))
