@@ -2,8 +2,8 @@ package de.krawie.demogame.location.shed;
 
 import java.util.Optional;
 
-import de.krawie.demogame.DefaultMessages;
 import de.krawie.demogame.location.ShedInside.ShedInside;
+import de.krawie.textadventure.framework.DefaultMessages;
 import de.krawie.textadventure.framework.Scene;
 import de.krawie.textadventure.framework.item.Item;
 import de.krawie.textadventure.framework.location.HiddenPath;

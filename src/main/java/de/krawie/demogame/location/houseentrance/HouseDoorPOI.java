@@ -2,8 +2,8 @@ package de.krawie.demogame.location.houseentrance;
 
 import java.util.Optional;
 
-import de.krawie.demogame.DefaultMessages;
 import de.krawie.demogame.item.DoorKnob;
+import de.krawie.textadventure.framework.DefaultMessages;
 import de.krawie.textadventure.framework.item.Item;
 import de.krawie.textadventure.framework.location.PointOfInterest;
 import de.krawie.textadventure.framework.player.Player;

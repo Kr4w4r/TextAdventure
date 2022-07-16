@@ -1,4 +1,4 @@
-package de.krawie.demogame;
+package de.krawie.textadventure.framework;
 
 import de.krawie.textadventure.framework.item.Item;
 
