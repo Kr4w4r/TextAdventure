@@ -14,9 +14,9 @@ public class HelpCommand implements Command{
 			"gehe nach <Umgebung> - Gehen in eine andere Umgebung\n" +
 			"umsehen - Sehe dich in der Umgebung um und entdecke besondere Orte\n" +
 			"untersuche <Ort oder Gegenstand> - Untersuche einen Gegenstand oder Ort\n" + 
-			"benutze <gegenstand> - Benutze einen Gegenstand\n" +
-			"benutze <gegenstand> an <Ort> - Benutze einen Gegenstand an einen Ort"
+			"benutze <Gegenstand oder Ort> - Benutze einen Gegenstand oder einen Ort\n" +
+			"benutze <Gegenstand> an <Ort> - Benutze einen Gegenstand an einen Ort\n" +
+			"Inventar - Zeigt alle Gegenstände in deinem Inventar."
 		);
 	}
-	
 }

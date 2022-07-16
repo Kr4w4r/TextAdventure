@@ -1,6 +1,5 @@
 package de.krawie.demogame.location.ShedInside;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,6 +12,11 @@ public class ShedInside extends Location {
 
     private final List<Path> availablePaths = Arrays.asList(
         new Path(Shed.class)
+    );
+    private static final List<PointOfInterest> pointsOfInterest = Arrays.asList(
+        new ShedShelfPOI("Links"),
+        new ShedShelfPOI("Mitte"),
+        new ShedShelfPOI("Rechts")
     );
 
     @Override
@@ -32,7 +36,6 @@ public class ShedInside extends Location {
 
     @Override
     public List<PointOfInterest> getPointsOfInterest() {
-        return new ArrayList<>();
+        return pointsOfInterest;
     }
-    
 }

@@ -9,6 +9,7 @@ import de.krawie.textadventure.framework.location.Location;
 import de.krawie.textadventure.framework.location.LocationFactory;
 import de.krawie.textadventure.framework.location.Path;
 import de.krawie.textadventure.framework.location.PathBlocker;
+import de.krawie.textadventure.framework.location.PointOfInterest;
 
 public class Scene {
 
@@ -45,5 +46,15 @@ public class Scene {
 		Optional<Path> optionalPath = getPath(startLocationClass, tartetLocationClass);
 		
 		return optionalPath.map(path -> path.getHiddenPath());
+	}
+
+	public static Optional<PointOfInterest> getPointOfInterest(Class<? extends Location> locationClass, Class<? extends PointOfInterest> POIClass) {
+		 Optional<PointOfInterest> foundPoi = getLocation(locationClass).getPointsOfInterest().stream()
+		 	.filter(poi -> { 
+				return poi.getClass().equals(POIClass);
+			})
+			.findFirst();
+
+		return foundPoi;
 	}
 }

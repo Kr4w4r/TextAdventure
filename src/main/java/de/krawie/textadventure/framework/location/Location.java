@@ -24,7 +24,7 @@ public abstract class Location {
 		for (Path path : getAvailablePaths()) {
 			if (path.isHidden() == false) {
 				Location targetLocation = Scene.getLocation(path.getLocationToGo());
-				System.out.println("- \"" + targetLocation.getName() + "\"");
+				System.out.println("- " + targetLocation.getName() + " - \"" + targetLocation.getLocationKey() + "\"");
 			}
 		}
 	}
@@ -37,7 +37,9 @@ public abstract class Location {
 			System.out.println("Du siehst dich um. Dabei siehst du:");
 			
 			for (PointOfInterest poi : getPointsOfInterest()) {
-				System.out.println("-\"" + poi.getName() + "\"");
+				if (poi.isHidden() == false) {
+					System.out.println("-\"" + poi.getName() + "\"");
+				}
 			}
 		}
 	}

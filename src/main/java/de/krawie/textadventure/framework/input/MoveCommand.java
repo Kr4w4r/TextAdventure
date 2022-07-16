@@ -35,7 +35,8 @@ public class MoveCommand implements Command {
 				Class<? extends Location> targetLocationClass = path.getLocationToGo();
 				Location location = Scene.getLocation(targetLocationClass);
 
-				return location.getName().equals(locationName);
+				return location.getLocationKey().equals(locationName) || 
+					location.getName().equals(locationName);
 			})
 			.findFirst();
 

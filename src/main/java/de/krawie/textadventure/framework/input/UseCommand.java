@@ -2,6 +2,8 @@ package de.krawie.textadventure.framework.input;
 
 import java.util.Optional;
 
+import de.krawie.textadventure.framework.Useable;
+import de.krawie.textadventure.framework.UseableWithItem;
 import de.krawie.textadventure.framework.item.Item;
 import de.krawie.textadventure.framework.location.InputToPointOfInterest;
 import de.krawie.textadventure.framework.location.Location;
@@ -28,44 +30,68 @@ public class UseCommand implements Command {
 		String commandData = getCommandDataFromInput(playerInput);
 
 		if (commandData.contains(" an ")) {
-			String[] splitCommand = commandData.split(" an ");
-			String itemName = splitCommand[0].trim();
-			Optional<Item> item = InputToItem.findItemInInventoryByName(player, itemName);
-
-			String poiName = splitCommand[1].trim();
-			Location playerLocation = PlayerLocation.getPlayerLocation(player);
-			Optional<PointOfInterest> poi = InputToPointOfInterest.findByName(playerLocation, poiName);
-
-			if (item.isPresent() == false) {
-				System.out.println("Ich habe keinen Gegenstand: " + itemName);
-				return;
-			}
-			if (poi.isPresent() == false) {
-				System.out.println("Es gibt keinen Ort: " + poiName);
-				return;
-			}
-
-			useItemOnPointOfInterest(item.get(), poi.get());
+			useItemOnCommand(commandData);
 		} else {
-			String itemName = commandData.trim();
-			Optional<Item> item = InputToItem.findItemInInventoryByName(player, itemName);
-			
-			if (item.isPresent() == false) {
-				System.out.println("Ich habe keinen Gegenstand: " + itemName);
-				return;
-			}
-			
-			useItem(item.get());
+			useCommand(commandData);
 		}
 	}
 
-	private void useItemOnPointOfInterest(Item item, PointOfInterest pointOfInterest) {
-		Optional<Item> optionalFoundItem = pointOfInterest.useItem(player, item);
+	private void useCommand(String commandData) {
+		String thingNameToUse = commandData.trim();
+
+		Optional<Useable> useable = findUseableByName(thingNameToUse);
+		if (useable.isEmpty()) {
+			System.out.println("Ich kann " + thingNameToUse + " nicht benutzen.");
+		}
+		
+		useUseable(useable.get());
+	}
+
+	private Optional<Useable> findUseableByName(String thingName) {
+		Optional<Item> item = InputToItem.findItemInInventoryByName(player, thingName);
+		Optional<Useable> useable = item.map(itemToMap -> (Useable) itemToMap);
+
+		if (useable.isEmpty()) {
+			Location playerLocation = PlayerLocation.getPlayerLocation(player);
+			Optional<PointOfInterest> poi = InputToPointOfInterest.findByName(playerLocation, thingName);
+			useable = poi.map(poiToMap -> (Useable)poiToMap);
+		}
+
+		return useable;
+	}
+
+	private void useUseable(Useable useable) {
+		Optional<Item> optionalFoundItem = useable.use(player);
 		optionalFoundItem.ifPresent(player::addItemToInventory);
 	}
 
-	private void useItem(Item item) {
-		Optional<Item> optionalFoundItem = item.use(player);
+	private void useItemOnCommand(String commandData) {
+		String[] splitCommand = commandData.split(" an ");
+		String itemName = splitCommand[0].trim();
+		Optional<Item> item = InputToItem.findItemInInventoryByName(player, itemName);
+
+		String thingNameToUseItemOn = splitCommand[1].trim();
+
+		Optional<UseableWithItem> useableWithItem = findUseableWithItemByName(thingNameToUseItemOn);
+		
+		if (item.isEmpty()) {
+			System.out.println("Ich habe keinen Gegenstand: " + itemName);
+		} else if (useableWithItem.isEmpty()) {
+			System.out.println("Es gibt kein " + thingNameToUseItemOn + " wo ich " + itemName + " benutzen kann.");
+		} else {
+			useItemOnPointOfInterest(item.get(), useableWithItem.get());
+		}
+	}
+
+	private Optional<UseableWithItem> findUseableWithItemByName(String thingName) {
+		Location playerLocation = PlayerLocation.getPlayerLocation(player);
+		Optional<PointOfInterest> poi = InputToPointOfInterest.findByName(playerLocation, thingName);
+
+		return poi.map(poiToMap -> (UseableWithItem) poiToMap);
+	}
+
+	private void useItemOnPointOfInterest(Item item, UseableWithItem useableWithItem) {
+		Optional<Item> optionalFoundItem = useableWithItem.useItem(player, item);
 		optionalFoundItem.ifPresent(player::addItemToInventory);
 	}
 }

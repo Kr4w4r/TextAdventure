@@ -20,7 +20,8 @@ public class Shed extends Location {
 	);
     private final List<PointOfInterest> pointOfInterests = Arrays.asList(
         new ShedDoorPOI(),
-        new ShedWallPOI()
+        new ShedWallPOI(),
+        new ShedWindowPOI()
     );
 
     public Shed() {

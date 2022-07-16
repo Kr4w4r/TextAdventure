@@ -14,7 +14,7 @@ public class ShedDoorPOI implements PointOfInterest {
 
     @Override
     public String getName() {
-        return "Schuppentür";
+        return "Tür";
     }
 
     @Override
