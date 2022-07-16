@@ -9,5 +9,6 @@ import de.krawie.textadventure.framework.player.Player;
 public interface PointOfInterest extends Inspectable {
 
 	String getName();
+	Optional<Item> use(Player player);
 	Optional<Item> useItem(Player player, Item itemToUse);
 }

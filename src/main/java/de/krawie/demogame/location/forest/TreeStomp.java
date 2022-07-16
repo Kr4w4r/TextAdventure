@@ -37,7 +37,14 @@ public class TreeStomp implements PointOfInterest {
 
 	@Override
 	public Optional<Item> useItem(Player player, Item itemToUse) {
-		System.out.println("Du kannst den gegenstand hier nicht benutzen.");
+		System.out.println(itemToUse.getName() + " kann hier nicht verwendet werden.");
+		return Optional.empty();
+	}
+
+	@Override
+	public Optional<Item> use(Player player) {
+		System.out.println("Du kannst den Baumstumpf nicht benutzen");
+
 		return Optional.empty();
 	}
 }

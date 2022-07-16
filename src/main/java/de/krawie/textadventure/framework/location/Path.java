@@ -41,7 +41,11 @@ public class Path {
 		return pathBlocker != null && pathBlocker.isBlocking();
 	}
 
+	public HiddenPath getHiddenPath() {
+		return hiddenPath;
+	}
+
 	public boolean isHidden() {
-		return hiddenPath != null && hiddenPath.isHidden();
+		return hiddenPath != null && hiddenPath.isHidden() == false;
 	}
 }

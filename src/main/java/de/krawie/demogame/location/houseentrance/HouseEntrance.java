@@ -10,7 +10,7 @@ import de.krawie.textadventure.framework.location.PointOfInterest;
 
 public class HouseEntrance extends Location {
 
-    private List<Path> availablePaths = Arrays.asList(
+    private final List<Path> availablePaths = Arrays.asList(
         new Path(Garden.class)/* ,
         new Path(Location.HOUSE_EAST_SIDE),
         new Path(Location.HOUSE_WEST_SIDE)*/

@@ -1,33 +1,23 @@
-package de.krawie.demogame.location.forest;
+package de.krawie.demogame.location.houseeast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import de.krawie.demogame.location.gardenfence.GardenFence;
+import de.krawie.demogame.location.garden.Garden;
 import de.krawie.textadventure.framework.location.Location;
 import de.krawie.textadventure.framework.location.Path;
 import de.krawie.textadventure.framework.location.PointOfInterest;
 
-public class ForestLocation extends Location {
+public class HouseEast extends Location {
 
 	private final List<Path> availablePaths = Arrays.asList(
-			new Path(GardenFence.class)
+		new Path(Garden.class)
 	);
-
-	TreeStomp treeStomp = new TreeStomp();
-
-	public ForestLocation() {
-		super();
-	}
 
 	@Override
 	public String getName() {
-		return "Dunkler Wald";
-	}
-
-	@Override
-	public List<PointOfInterest> getPointsOfInterest() {
-		return Arrays.asList(treeStomp);
+		return "Haus Ostseite";
 	}
 
 	@Override
@@ -35,4 +25,9 @@ public class ForestLocation extends Location {
 		return availablePaths;
 	}
 
+	@Override
+	public List<PointOfInterest> getPointsOfInterest() {
+		return new ArrayList<>();
+	}
+    
 }

@@ -7,7 +7,7 @@ public class HiddenPath {
         return isHidden;
     }
 
-    public void unHide() {
+    public void unhide() {
         this.isHidden = false;
     }
 }
