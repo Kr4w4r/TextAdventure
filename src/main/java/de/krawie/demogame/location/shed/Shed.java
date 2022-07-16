@@ -3,6 +3,7 @@ package de.krawie.demogame.location.shed;
 import java.util.Arrays;
 import java.util.List;
 
+import de.krawie.demogame.location.ShedInside.ShedInside;
 import de.krawie.demogame.location.garden.Garden;
 import de.krawie.demogame.location.housewest.HouseWest;
 import de.krawie.textadventure.framework.location.HiddenPath;
@@ -28,6 +29,11 @@ public class Shed extends Location {
 
     @Override
     public String getName() {
+        return "Alter Schuppen";
+    }
+
+    @Override
+    public String getLocationKey() {
         return "Schuppen";
     }
 
