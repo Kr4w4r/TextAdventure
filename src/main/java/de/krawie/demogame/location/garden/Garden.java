@@ -29,6 +29,11 @@ public class Garden extends Location {
 
 	@Override
 	public String getName() {
+		return "Großer Garten mit Brunnen";
+	}
+
+	@Override
+	public String getLocationKey() {
 		return "Garten";
 	}
 

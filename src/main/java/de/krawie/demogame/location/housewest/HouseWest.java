@@ -19,7 +19,12 @@ public class HouseWest extends Location {
 
     @Override
     public String getName() {
-        return "Haus Westseite";
+        return "Westseite des Hauses";
+    }
+
+    @Override
+    public String getLocationKey() {
+        return "Westseite";
     }
 
     @Override

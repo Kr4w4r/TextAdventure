@@ -16,7 +16,7 @@ public class HouseEntrance extends Location {
         new Path(Location.HOUSE_WEST_SIDE)*/
     );
     private List<PointOfInterest> pointOfInterests = Arrays.asList(
-        new HouseDoor()
+        new HouseDoorPOI()
     );
 
     public HouseEntrance() {
@@ -25,7 +25,12 @@ public class HouseEntrance extends Location {
     
     @Override
     public String getName() {
-        return "Haustür";
+        return "Veranda des Hauses mit Eingangstür";
+    }
+
+    @Override
+    public String getLocationKey() {
+        return "Veranda";
     }
 
     @Override

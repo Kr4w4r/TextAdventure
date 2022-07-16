@@ -7,6 +7,7 @@ import de.krawie.textadventure.framework.Scene;
 public abstract class Location {
 
 	public abstract String getName();
+	public abstract String getLocationKey();
 	public abstract List<Path> getAvailablePaths();
 	public abstract List<PointOfInterest> getPointsOfInterest();
 

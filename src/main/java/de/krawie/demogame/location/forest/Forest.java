@@ -8,21 +8,26 @@ import de.krawie.textadventure.framework.location.Location;
 import de.krawie.textadventure.framework.location.Path;
 import de.krawie.textadventure.framework.location.PointOfInterest;
 
-public class ForestLocation extends Location {
+public class Forest extends Location {
 
 	private final List<Path> availablePaths = Arrays.asList(
 			new Path(GardenFence.class)
 	);
 
-	TreeStomp treeStomp = new TreeStomp();
+	TreeStompPOI treeStomp = new TreeStompPOI();
 
-	public ForestLocation() {
+	public Forest() {
 		super();
 	}
 
 	@Override
 	public String getName() {
 		return "Dunkler Wald";
+	}
+
+	@Override
+	public String getLocationKey() {
+		return "Wald";
 	}
 
 	@Override

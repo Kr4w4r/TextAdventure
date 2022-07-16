@@ -12,8 +12,6 @@ import de.krawie.textadventure.framework.player.Player;
 
 public class GardenFenceDoorPOI implements PointOfInterest {
 
-	boolean isLocked = true;
-
 	public GardenFenceDoorPOI() {}
 
 	@Override
@@ -23,7 +21,7 @@ public class GardenFenceDoorPOI implements PointOfInterest {
 
 	@Override
 	public Optional<Item> inspect() {
-		if (getGardenDoorPathBlocker().isBlocking()) {
+		if (isDoorLocked()) {
 			System.out.println("Eine altes rostiges aber unüberwindbares Gartentor. Es ist verschlossen.");
 		} else {
 			System.out.println("Eine altes rostiges Gartentor. Du hast es geöffnet.");
@@ -39,15 +37,20 @@ public class GardenFenceDoorPOI implements PointOfInterest {
 			.orElseThrow();
 	}
 
+	private boolean isDoorLocked() {
+		return getGardenDoorPathBlocker().isBlocking();
+	}
+
 	@Override
 	public Optional<Item> useItem(Player player, Item itemToUse) {
-		if (itemToUse.getType() == ItemType.GARDENKEY) {
+
+		if (isDoorLocked() && itemToUse.getType() == ItemType.GARDENKEY) {
 			System.out.println("Du steckst den Schlüssel in das Schloss des Tores. Er passt. Mit ein wenig kraft kannst du ihn drehen. Das Tor ist jetzt offen.");
 			
 			getGardenDoorPathBlocker().unblock();
 			player.dropItem(itemToUse);
-
-			return Optional.empty();
+		} else if (isDoorLocked() == false) {
+			System.out.println("Du hast die Tür schon geöffnet. Der weg ist jetzt frei.");
 		} else {
 			System.out.println(itemToUse.getName() + " kann hier nicht verwendet werden.");
 		}
@@ -56,8 +59,13 @@ public class GardenFenceDoorPOI implements PointOfInterest {
 
 	@Override
 	public Optional<Item> use(Player player) {
-		System.out.println("Du versuchst das Tor zu öffnen, aber es ist verschlossen.\n" +
-				"Ohne Schlüssel kommst du hier nicht weiter.");
+
+		if (isDoorLocked()) {
+			System.out.println("Du versuchst das Tor zu öffnen, aber es ist verschlossen.\n" +
+					"Ohne Schlüssel kommst du hier nicht weiter.");
+		} else {
+			System.out.println("Du hast die Tür schon geöffnet. Der weg ist jetzt frei.");
+		}
 
 		return Optional.empty();
 	}
