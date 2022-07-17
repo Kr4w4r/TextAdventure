@@ -13,11 +13,6 @@ public class DoorKnob implements Item {
     }
 
     @Override
-    public ItemType getType() {
-        return ItemType.DOORKNOB;
-    }
-
-    @Override
     public Optional<Item> inspect() {
         System.out.println("Der Türknauf der Haustür. Du hast ihn ausversehen abgebrochen.");
         return Optional.empty();

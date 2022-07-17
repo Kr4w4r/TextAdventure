@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.krawie.textadventure.framework.item.Item;
-import de.krawie.textadventure.framework.item.Item.ItemType;
 import de.krawie.textadventure.framework.location.Location;
 
 public class Player {
@@ -27,16 +26,16 @@ public class Player {
 		inventory.add(itemToAdd);
 	}
 
-	public boolean hasItem(ItemType itemType) {
-		return inventory.stream().anyMatch(item -> item.getType() == itemType);
+	public boolean hasItem(Class<? extends Item> itemClass) {
+		return inventory.stream().anyMatch(item -> item.getClass().equals(itemClass));
 	}
 
 	public void dropItem(Item itemToDrop) {
 		inventory.remove(itemToDrop);
 	}
 
-	public void dropItem(ItemType itemTypeToDrop) {
-		inventory.removeIf(item -> item.getType() == itemTypeToDrop);
+	public void dropItem(Class<? extends Item> itemClass) {
+		inventory.removeIf(item -> item.getClass().equals(itemClass));
 	}
 
 	public List<Item> getInventoryItems() {

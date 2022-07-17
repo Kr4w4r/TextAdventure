@@ -2,10 +2,10 @@ package de.krawie.demogame.location.gardenfence;
 
 import java.util.Optional;
 
+import de.krawie.demogame.item.GardenKey;
 import de.krawie.demogame.location.garden.Garden;
 import de.krawie.textadventure.framework.Scene;
 import de.krawie.textadventure.framework.item.Item;
-import de.krawie.textadventure.framework.item.Item.ItemType;
 import de.krawie.textadventure.framework.location.PathBlocker;
 import de.krawie.textadventure.framework.location.PointOfInterest;
 import de.krawie.textadventure.framework.player.Player;
@@ -44,7 +44,7 @@ public class GardenFenceDoorPOI implements PointOfInterest {
 	@Override
 	public Optional<Item> useItem(Player player, Item itemToUse) {
 
-		if (isDoorLocked() && itemToUse.getType() == ItemType.GARDENKEY) {
+		if (isDoorLocked() && itemToUse.is(GardenKey.class)) {
 			System.out.println("Du steckst den Schlüssel in das Schloss des Tores. Er passt. Mit ein wenig kraft kannst du ihn drehen. Das Tor ist jetzt offen.");
 			
 			getGardenDoorPathBlocker().unblock();

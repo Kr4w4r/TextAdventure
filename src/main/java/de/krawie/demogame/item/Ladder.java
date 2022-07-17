@@ -14,11 +14,6 @@ public class Ladder implements Item {
     }
 
     @Override
-    public ItemType getType() {
-        return ItemType.LADDER;
-    }
-
-    @Override
     public Optional<Item> inspect() {
         System.out.println("Eine alte Holzleiter. Sie könnte mich gerade so halten.");
         return Optional.empty();

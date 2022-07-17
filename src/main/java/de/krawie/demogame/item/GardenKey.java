@@ -13,11 +13,6 @@ public class GardenKey implements Item {
 	}
 
 	@Override
-	public ItemType getType() {
-		return ItemType.GARDENKEY;
-	}
-
-	@Override
 	public Optional<Item> inspect() {
 		System.out.println("Ein alter rostiger Schlüssel. Er scheint länger draußen gelegen zu haben.");
 		return Optional.empty();
