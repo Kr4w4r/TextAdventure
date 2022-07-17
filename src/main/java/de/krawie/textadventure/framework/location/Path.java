@@ -46,6 +46,6 @@ public class Path {
 	}
 
 	public boolean isHidden() {
-		return hiddenPath != null && hiddenPath.isHidden() == false;
+		return hiddenPath != null && hiddenPath.isHidden();
 	}
 }
