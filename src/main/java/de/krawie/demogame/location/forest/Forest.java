@@ -3,10 +3,13 @@ package de.krawie.demogame.location.forest;
 import java.util.Arrays;
 import java.util.List;
 
+import com.diogonunes.jcolor.Attribute;
+
 import de.krawie.demogame.location.gardenfence.GardenFence;
 import de.krawie.textadventure.framework.location.Location;
 import de.krawie.textadventure.framework.location.Path;
 import de.krawie.textadventure.framework.location.PointOfInterest;
+import de.krawie.textadventure.framework.textoutput.TextBuilder;
 
 public class Forest extends Location {
 
@@ -22,7 +25,9 @@ public class Forest extends Location {
 
 	@Override
 	public String getName() {
-		return "Dunkler Wald";
+		return new TextBuilder()
+			.append("Dunkler Wald", Attribute.GREEN_TEXT(), Attribute.SLOW_BLINK())
+			.toString();
 	}
 
 	@Override
