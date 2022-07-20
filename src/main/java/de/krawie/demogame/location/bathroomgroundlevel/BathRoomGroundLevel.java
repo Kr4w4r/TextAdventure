@@ -13,6 +13,12 @@ public class BathRoomGroundLevel extends Location {
     private final List<Path> availablePaths = Arrays.asList(
         new Path(EntranceHall.class)
     );
+    private final List<PointOfInterest> pois = Arrays.asList(
+        new BathTube(),
+        new BathroomSink(),
+        new BathCabinet(),
+        new Toilet()
+    );
 
     @Override
     public String getName() {
@@ -31,8 +37,6 @@ public class BathRoomGroundLevel extends Location {
 
     @Override
     public List<PointOfInterest> getPointsOfInterest() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-    
+        return pois;
+    }    
 }
