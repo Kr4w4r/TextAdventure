@@ -15,16 +15,31 @@ public class TextBuilder {
         return this;
     }
 
+    public TextBuilder appendLine(String text) {
+        append(text);
+        return appendNewLine();
+    }
+
     public TextBuilder append(String text, Attribute ... attributes) {
         textBuilder.append(colorize(text, attributes));
 
         return this;
     }
 
+    public TextBuilder appendLine(String text, Attribute ... attributes) {
+        append(text, attributes);
+        return appendNewLine();
+    }
+
     public TextBuilder append(String text, AnsiFormat textFormat) {
         textBuilder.append(colorize(text, textFormat));
 
         return this;
+    }
+
+    public TextBuilder appendLine(String text, AnsiFormat textFormat) {
+        append(text, textFormat);
+        return appendNewLine();
     }
 
     public TextBuilder appendNewLine() {
