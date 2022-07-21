@@ -8,28 +8,29 @@ import de.krawie.textadventure.framework.location.PointOfInterest;
 import de.krawie.textadventure.framework.player.Player;
 import de.krawie.textadventure.framework.textoutput.TextBuilder;
 
-public class BathroomSink implements PointOfInterest {
-    
+public class BathCabinetPOI implements PointOfInterest {
+
     @Override
     public String getName() {
-        return "Waschbecken";
+        return "Badschrank";
     }
 
     @Override
     public Optional<Item> inspect() {
         new TextBuilder()
-            .appendLine("Ein Waschbecken. Ein Stück ist abgebrochen. Das kann man wohl nicht mehr verwenden.")
+            .append("Ein Schrank über dem Waschbecken. Der Spiegel scheint entfernt worden zu sein.")
             .println();
-
+        
         return Optional.empty();
     }
 
     @Override
     public Optional<Item> use(Player player) {
         new TextBuilder()
-            .appendLine("Du drehst den Wasserhahn auf. Bis auf ein bisschen Staub kommt aber nichts raus.")
+            .append("Du öffnest den Schrank. Du siehst eine Maus und sie sieht dich an. Vor lauter Panik läuft sie weg.\n")
+            .append("Sonst ist da nichts.")
             .println();
-
+    
         return Optional.empty();
     }
 
@@ -39,4 +40,5 @@ public class BathroomSink implements PointOfInterest {
 
         return Optional.empty();
     }
+
 }

@@ -8,17 +8,17 @@ import de.krawie.textadventure.framework.location.PointOfInterest;
 import de.krawie.textadventure.framework.player.Player;
 import de.krawie.textadventure.framework.textoutput.TextBuilder;
 
-public class BathTube implements PointOfInterest {
+public class BathroomSinkPOI implements PointOfInterest {
     
     @Override
     public String getName() {
-        return "Badewanne";
+        return "Waschbecken";
     }
 
     @Override
     public Optional<Item> inspect() {
         new TextBuilder()
-            .append("Eine Badewanne gefüllt mit Schutt. Da ist nichts spannendes drin.")
+            .appendLine("Ein Waschbecken. Ein Stück ist abgebrochen. Das kann man wohl nicht mehr verwenden.")
             .println();
 
         return Optional.empty();
@@ -27,8 +27,7 @@ public class BathTube implements PointOfInterest {
     @Override
     public Optional<Item> use(Player player) {
         new TextBuilder()
-            .appendLine("Du hebst ein großes Stück Schutt auf und betrachtest es.")
-            .appendLine("Damit kannst du wohl nichts anfangen. Daher wirfst du es zurück")
+            .appendLine("Du drehst den Wasserhahn auf. Bis auf ein bisschen Staub kommt aber nichts raus.")
             .println();
 
         return Optional.empty();
@@ -40,6 +39,4 @@ public class BathTube implements PointOfInterest {
 
         return Optional.empty();
     }
-
-    
 }

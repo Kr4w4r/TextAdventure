@@ -8,7 +8,7 @@ import de.krawie.textadventure.framework.location.PointOfInterest;
 import de.krawie.textadventure.framework.player.Player;
 import de.krawie.textadventure.framework.textoutput.TextBuilder;
 
-public class Toilet implements PointOfInterest {
+public class ToiletPOI implements PointOfInterest {
 
     private boolean ratEventTriggered = false;
 
