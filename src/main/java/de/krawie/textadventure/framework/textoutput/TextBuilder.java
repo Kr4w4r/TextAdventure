@@ -7,10 +7,10 @@ import com.diogonunes.jcolor.Attribute;
 
 public class TextBuilder {
     
-    private StringBuilder textBuilder = new StringBuilder();
+    private StringBuilder textStringBuilder = new StringBuilder();
 
     public TextBuilder append(String text) {
-        textBuilder.append(text);
+        textStringBuilder.append(text);
 
         return this;
     }
@@ -21,7 +21,7 @@ public class TextBuilder {
     }
 
     public TextBuilder append(String text, Attribute ... attributes) {
-        textBuilder.append(colorize(text, attributes));
+        textStringBuilder.append(colorize(text, attributes));
 
         return this;
     }
@@ -32,7 +32,7 @@ public class TextBuilder {
     }
 
     public TextBuilder append(String text, AnsiFormat textFormat) {
-        textBuilder.append(colorize(text, textFormat));
+        textStringBuilder.append(colorize(text, textFormat));
 
         return this;
     }
@@ -43,14 +43,14 @@ public class TextBuilder {
     }
 
     public TextBuilder appendNewLine() {
-        textBuilder.append("\n");
+        textStringBuilder.append("\n");
 
         return this;
     }
 
     @Override
     public String toString() {
-        return textBuilder.toString();
+        return textStringBuilder.toString();
     }
 
     public void println() {
