@@ -24,3 +24,5 @@ hs_err_pid*
 
 # VS Code stuff
 .vscode/
+
+*.sav
