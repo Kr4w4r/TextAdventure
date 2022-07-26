@@ -14,6 +14,14 @@ public class Kitchen extends Location {
         new Path(DinningRoom.class)
     );
 
+    private final List<PointOfInterest> pois = Arrays.asList(
+        new CabinetsPOI(),
+        new FridgePOI(),
+        new OvenPOI(),
+        new ShelfPOI(),
+        new KnifePOI()
+    );
+
     @Override
     public String getName() {
         return "Eingestaubte Küche";
@@ -31,8 +39,6 @@ public class Kitchen extends Location {
 
     @Override
     public List<PointOfInterest> getPointsOfInterest() {
-        // TODO Auto-generated method stub
-        return null;
+        return pois;
     }
-    
 }
