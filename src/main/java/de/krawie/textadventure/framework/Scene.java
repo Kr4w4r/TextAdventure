@@ -13,19 +13,23 @@ import de.krawie.textadventure.framework.location.PointOfInterest;
 
 public class Scene {
 
-	private static LocationFactory factory;
-	private static Map<Class<? extends Location>, Location> locations = new HashMap<>();
-	
-	private Scene() {}
+	private static Scene instance;
 
-	public static void initInstance(LocationFactory factory) {
-		Scene.factory = factory;
+	private LocationFactory factory;
+	private Map<Class<? extends Location>, Location> locations = new HashMap<>();
+	
+	public static void setInstance(Scene instance) {
+		Scene.instance = instance;
+	}
+
+	public Scene(LocationFactory factory) {
+		this.factory = factory;
 	}
 
 	public static Location getLocation(Class<? extends Location> locationClass) {
-		locations.computeIfAbsent(locationClass, loc -> factory.createLocation(loc));
+		instance.locations.computeIfAbsent(locationClass, loc -> instance.factory.createLocation(loc));
 
-		return locations.get(locationClass);
+		return instance.locations.get(locationClass);
 	}
 
 	public static Optional<Path> getPath(Class<? extends Location> startLocationClass, Class<? extends Location> tartetLocationClass) {
@@ -50,9 +54,7 @@ public class Scene {
 
 	public static Optional<PointOfInterest> getPointOfInterest(Class<? extends Location> locationClass, Class<? extends PointOfInterest> POIClass) {
 		 Optional<PointOfInterest> foundPoi = getLocation(locationClass).getPointsOfInterest().stream()
-		 	.filter(poi -> { 
-				return poi.getClass().equals(POIClass);
-			})
+		 	.filter(poi -> poi.getClass().equals(POIClass))
 			.findFirst();
 
 		return foundPoi;

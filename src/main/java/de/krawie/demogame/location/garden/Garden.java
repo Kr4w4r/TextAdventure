@@ -1,6 +1,5 @@
 package de.krawie.demogame.location.garden;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,6 +13,10 @@ import de.krawie.textadventure.framework.location.Path;
 import de.krawie.textadventure.framework.location.PointOfInterest;
 
 public class Garden extends Location {
+
+	private final List<PointOfInterest> pois = Arrays.asList(
+		new FountainPOI()
+	);
 
 	private final List<Path> availablePaths = Arrays.asList(
 		new Path(GardenFence.class),
@@ -39,7 +42,7 @@ public class Garden extends Location {
 
 	@Override
 	public List<PointOfInterest> getPointsOfInterest() {
-		return new ArrayList<>();
+		return pois;
 	}
 
 	@Override

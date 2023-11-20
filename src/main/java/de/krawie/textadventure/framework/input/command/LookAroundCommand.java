@@ -1,4 +1,4 @@
-package de.krawie.textadventure.framework.input;
+package de.krawie.textadventure.framework.input.command;
 
 import de.krawie.textadventure.framework.Scene;
 import de.krawie.textadventure.framework.location.Location;

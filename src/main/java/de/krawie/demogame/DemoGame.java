@@ -1,19 +1,23 @@
 package de.krawie.demogame;
 
-import de.krawie.demogame.location.forest.Forest;
+import de.krawie.demogame.gamestate.mainmenu.DemoGameMainMenu;
 import de.krawie.textadventure.framework.Game;
-import de.krawie.textadventure.framework.location.Location;
-import de.krawie.textadventure.framework.location.LocationFactory;
+import de.krawie.textadventure.framework.gamestate.GameState;
 
 public class DemoGame extends Game {
     
-    @Override
-    protected LocationFactory getLocationFactory() {
-        return new DemoGameLocationFactory();
-    }
+    // @Override
+    // protected LocationFactory getLocationFactory() {
+    //     return new DemoGameLocationFactory();
+    // }
+
+    // @Override
+    // public Class<? extends Location> getPlayerStartLocation() {
+    //     return Forest.class;
+    // }
 
     @Override
-    public Class<? extends Location> getPlayerStartLocation() {
-        return Forest.class;
+    protected GameState getInitialGameState() {
+        return new DemoGameMainMenu();
     }
 }

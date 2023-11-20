@@ -14,10 +14,10 @@ public class BathRoomGroundLevel extends Location {
         new Path(EntranceHall.class)
     );
     private final List<PointOfInterest> pois = Arrays.asList(
-        new BathTube(),
-        new BathroomSink(),
-        new BathCabinet(),
-        new Toilet()
+        new BathTubePOI(),
+        new BathroomSinkPOI(),
+        new BathCabinetPOI(),
+        new ToiletPOI()
     );
 
     @Override

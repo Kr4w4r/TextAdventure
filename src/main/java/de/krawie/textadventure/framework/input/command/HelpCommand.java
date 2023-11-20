@@ -1,4 +1,4 @@
-package de.krawie.textadventure.framework.input;
+package de.krawie.textadventure.framework.input.command;
 
 public class HelpCommand implements Command{
 

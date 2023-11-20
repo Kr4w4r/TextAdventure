@@ -11,6 +11,11 @@ import de.krawie.textadventure.framework.location.PointOfInterest;
 
 public class DinningRoom extends Location {
 
+    private static final List<Path> availablePaths = Arrays.asList(
+        new Path(EntranceHall.class),
+        new Path(Kitchen.class)
+    );
+
     @Override
     public String getName() {
         return "Großes Esszimmer mit Tisch";
@@ -23,10 +28,7 @@ public class DinningRoom extends Location {
 
     @Override
     public List<Path> getAvailablePaths() {
-        return Arrays.asList(
-            new Path(EntranceHall.class),
-            new Path(Kitchen.class)
-        );
+        return availablePaths;
     }
 
     @Override
